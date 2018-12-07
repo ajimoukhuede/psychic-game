@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <meta charset="utf-8"> 
+    <title>Number Guessing Game</title> 
+  
+    <style> 
+        html { 
+    font-family: sans-serif; 
+    } 
+      
+        body { 
+    width: 50%; 
+    max-width: 800px; 
+    min-width: 480px; 
+    margin: 0 auto; 
+    } 
+    </style> 
+</head> 
+  
+<body> 
+<h1>Psychic Game</h1> 
+</p> Guess what number im thinking of</p>
+<p> wins: <span id = "wins"></span></p>
+<p id ="losses">losses: </p>
+<p id ="guesses">gueeses left: 3</p> 
+  
+<div class="form"> 
+    <label for="guessField">your guesses so far: </label> 
+    <input type = "text" id = "guessField" class = "guessField"> 
+    <input type = "submit" value = "Submit guess" 
+           class = "guessSubmit" id = "submitguess"> 
+</div> 
+  
+<script type = "text/javascript"> 
+  var loss = 0;
+  var wins = 0;
+    // random value generated 
+    var y = Math.floor(Math.random() * 10 + 1); 
+    console.log(y);
+    // counting the number of guesses 
+    // made for correct Guess 
+    var guess = 3; 
+      
+    document.getElementById("submitguess").onclick = function(){ 
+      
+   // number guessed by user      
+   var x = document.getElementById("guessField").value; 
+  
+   if(x == y) 
+   {   
+       guess = 3;
+       wins++;
+       document.getElementById("wins").innerHTML = wins;
+       alert("CONGRATULATIONS!!! YOU GUESSED IT RIGHT IN "
+               + guess + " GUESS "); 
+        y = Math.floor(Math.random() * 10 + 1); 
+        console.log(y);
+   } 
+   else if(x > y) /* if guessed number is greater 
+                   than actual number*/ 
+   {     
+       guess--; 
+        loss++;
+        alert ("you have guessed a higher number, and you guessed" + loss + "times")
+        document.getElementById("losses").innerHTML =("losses: " +loss)
+        document.getElementById("guesses").innerHTML =("guesses: " + guess);
+
+   } 
+   else
+   { 
+       guess--; 
+       loss++;
+       alert ("you have guessed a higher number, and you guessed" + loss + "times")
+       document.getElementById("guesses").innerHTML =("guesses: " + guess);
+   } 
+} 
+
+</script> 
+</body> 
+</html>                     
